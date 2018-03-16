@@ -1,5 +1,9 @@
-
+<div class "navbar-wagon"></div>
 
 <% @cocktails.each do |c| %>
-<%= c.name %>
+<ul>
+  <li>
+    <%= link_to c.name, cocktail_path(c) %>
+  </li>
+</ul>
 <% end %>

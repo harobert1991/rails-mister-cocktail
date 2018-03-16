@@ -1,3 +1,10 @@
 // Import your components CSS files here.
 @import "alert";
 @import "navbar";
+@import "card";
+
+
+ul {
+  margin-top: 30px;
+  list-style-type: none;
+}
