@@ -8,12 +8,14 @@
 
 require 'open-uri'
 
-url = "https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list"
-doc = open(url).read
-doc_1 = JSON.parse(doc)
 
-doc_1.each do |i|
-  Ingredient.create(name: i)
+require 'open-uri'
+require 'json'
+
+list = JSON.parse(open('https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list').read)
+
+list["drinks"].each do |x|
+ Ingredient.create!({name:  x["strIngredient1"]})
 end
 
 # Ingredient.create(name: "lemon")
@@ -21,4 +23,3 @@ end
 # Ingredient.create(name: "mint leaves")
 # Ingredient.create(name: "club soda")
 # Ingredient.create(name: "brown sugar")
-
